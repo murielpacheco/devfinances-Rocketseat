@@ -113,9 +113,6 @@ const Utils = {
 
   formatDate(date) {
     const splittedDate = date.split("-");
-    if(date.length !== 8) {
-      return alert("Invalid date")
-    }
     return `${splittedDate[2]}/${splittedDate[1]}/${splittedDate[0]}`;
   },
 
@@ -183,13 +180,12 @@ const Form = {
   submit(event) {
     event.preventDefault();
 
-
     try {
       Form.validateFields();
       const transaction = Form.formatValues();
       Transaction.add(transaction);
       Form.clearFields();
-      modalObj.toggleModal;
+      modalObj.toggleModal();
     } catch (error) {
       alert(error.message);
     }
