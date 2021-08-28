@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="/style/style.css" />
+    <title>Dev Finance$</title>
+    <link rel="stylesheet" href="./style/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,6 +14,7 @@
     />
   </head>
   <script src="script.js" defer ></script>
+  <script src="script.js" defer></script>
 
   <body>
     <header>
@@ -32,7 +33,7 @@
               alt="Imagem das entradas"
             />
           </h3>
-          <p>R$ 5.000,00</p>
+          <p id="incomeDisplay"></p>
         </div>
         <div class="card">
           <h3>
@@ -43,18 +44,18 @@
               alt="Imagem das entradas"
             />
           </h3>
-          <p>R$ 2.000,00</p>
+          <p id="expenseDisplay"></p>
         </div>
         <div class="card total">
           <h3>
-            <span>Entradas</span>
+            <span>Total</span>
             <img
               class="icon-card"
               src="./assets/total.svg"
               alt="Imagem das entradas"
             />
           </h3>
-          <p>R$ 3.000,00</p>
+          <p id="totalDisplay"></p>
         </div>
       </section>
 
@@ -75,30 +76,6 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td class="description">Luz</td>
-              <td class="expense">- R$ 500,00</td>
-              <td class="date">23/01/2021</td>
-              <td>
-                <img src="./assets/minus.svg" alt="" />
-              </td>
-            </tr>
-            <tr>
-              <td class="description">Criação Website</td>
-              <td class="income">R$ 5.000,00</td>
-              <td class="date">23/01/2021</td>
-              <td>
-                <img src="./assets/minus.svg" alt="" />
-              </td>
-            </tr>
-            <tr>
-              <td class="description">Internet</td>
-              <td class="expense">- R$ 200,00</td>
-              <td class="date">23/01/2021</td>
-              <td>
-                <img src="./assets/minus.svg" alt="" />
-              </td>
-            </tr>
           </tbody>
         </table>
       </section>
@@ -108,7 +85,7 @@
       <div class="modal">
         <div id="form">
           <h2>Nova Transação</h2>
-          <form action="">
+          <form action="" onsubmit="Form.submit(event)">
             <div class="input-group">
               <label class="sr-only" for="description">Descrição</label>
               <input
@@ -140,7 +117,7 @@
             </div>
 
             <div class="input-group actions">
-              <a onclick="modal.closeModal()" href="#" class="button cancel"
+              <a onclick= "modalObj.toggleModal()" href="#" class="button cancel"
                 >Cancelar</a
               >
               <button>Salvar</button>
