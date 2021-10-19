@@ -1,9 +1,15 @@
 /* Global ======================= */
 
 :root {
-    --darkBlue: #363F6F;
+    --colorText: #363F6F;
     --green: #49AA26;
     --lightGreen: #3dd705;
+    --headerColor: #2D4A22;
+    --cardColor: #fff;
+    --colorTable: #363F6F;
+    --logoColor: #fff;
+    --modalColor: #363F6F;
+
 }
 
 * {
@@ -19,6 +25,17 @@ html {
 body {
     background-color: #f0f2f5;
     font-family: "Poppins", sans-serif
+}
+
+
+body.dark{
+    background-color: rgb(37, 37, 37);
+    --colorText: #fff   ;
+    --headerColor: rgb(255, 208, 0);
+    --cardColor: rgb(65, 64, 64);
+    --colorTable: #000;
+    --logoColor: #000;
+    --modalColor:#363F6F;
 }
 
 .sr-only {
@@ -45,7 +62,7 @@ body {
 h2{
     margin-top: 3.2rem;
     margin-bottom: .8rem;
-    color: var(--darkBlue);
+    color: var(--colorText);
     font-weight: normal;
 
 
@@ -80,7 +97,7 @@ button {
     width: 50%;
     height: 50px;
     border: none;
-    color: white;
+    color: #fff;
     background: var(--green);
     padding: 0;
     border-radius: 0.25rem;
@@ -111,13 +128,16 @@ button:hover {
 
 /* Header ========================== */
 header {
-    background-color: #2D4A22;
+    background-color: var(--headerColor);
     padding: 2rem 0 10rem;
     text-align: center;
+    display: flex;
+    align-items:center;
+    justify-content:center;
 }
 
 #logo {
-    color: #fff;
+    color: var(--logoColor);
     font-weight: 100;
 }
 
@@ -132,11 +152,11 @@ header {
 }
 
 .card {
-    background-color: #fff;
+    background-color: var(--cardColor);
     padding: 1.5rem 2rem;
     border-radius: .25rem;
     margin-bottom: 2rem;
-    color: var(--darkBlue);
+    color: var(--colorText);
 }
 
 .card h3 {
@@ -155,7 +175,7 @@ header {
 
 .card.total {
     background-color: #49AA26;
-    color: white;
+    color: #fff;
 }
 
 /* Table ========================== */
@@ -169,24 +189,24 @@ header {
 #data-table {
     width: 100%;
     border-spacing: 0 0.5rem;
-    color: #969cb3;
+    color: var(--colorTable);
 }
 
 table th {
-    background-color: white;
-    opacity: 0.6;
+    background-color: #fff;
     font-weight: normal;
     padding: 1rem 2rem;
     text-align: left;
 }
 
 table td {
-    background-color: white;
+    background-color: #fff;
     padding: 1rem 2rem;
     font-weight: normal;
 }
 table tbody tr {
-    opacity: 0.7;
+    background-color: #fff;
+    color: var(--colorTable)
 }
 
 table tr:hover {
@@ -206,7 +226,7 @@ table tbody tr td:last-child {
 
 
 td.description {
-    color: var(--darkBlue);
+color: var(--colorTable);
 
 }
 
@@ -222,7 +242,7 @@ td.expense {
 .modal-overlay {
     width: 100%;
     height: 100%;
-
+    color: var(--modalColor);
     background-color: rgba(0,0,0,0.6);
     position: fixed;
     top: 0;
@@ -241,6 +261,10 @@ td.expense {
 .modal {
     background: #F0F2F5;
     padding: 2.4rem;
+}
+
+.modal h2 {
+    color: var(--modalColor);
 }
 
 
@@ -271,15 +295,43 @@ input {
 .input-group small {
     opacity: .4;
 }
-/* Footer ========================== */
-
-footer {
-    text-align: center;
-    padding: 4rem 0 2rem;
-    color: var(--darkBlue);
-    opacity: 0.6;
-}
-
+/* Input Toggle Button ===================== */
+input[type='checkbox'] {
+    width: 60px;
+    height: 30px;
+    appearance: none;
+    background-color: #bbbbb3;
+    border-radius: 20px;
+    margin-left: 24px;
+    box-shadow: inset 0px 0px 16px 1px rgba(58, 58, 58, 0.2);
+    cursor: pointer;
+    transition: 0.4s;
+    position: relative;
+  }
+  
+  input:checked[type='checkbox'] {
+    background-color: #f1c916;
+    box-shadow: inset 0px 0px 16px 1px rgba(58, 58, 58, 0.2);
+  }
+  
+  input[type='checkbox']:before {
+    content: '';
+    width: 30px;
+    height: 30px;
+    background-color:var(--headerColor);
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: 0px 4px 8px 1px rgba(0, 0, 0, 0.25);
+    transform: scale(1.1);
+    top: 0;
+    left: 0;
+    transition: 0.4s;
+  }
+  
+  input:checked[type='checkbox']:before {
+    left: 32px;
+    background-color:var(--headerColor);
+  }
 
 /* Responsive ========================== */
 
@@ -294,3 +346,5 @@ footer {
         gap: 2rem
     }
 }
+
+
